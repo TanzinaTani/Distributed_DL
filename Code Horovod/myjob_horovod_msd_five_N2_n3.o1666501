@@ -1,0 +1,673 @@
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:2', device_type='GPU')]
+PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')
+PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU')
+PhysicalDevice(name='/physical_device:GPU:2', device_type='GPU')
+total len: 2670
+rank: 1  len train: 890  len valid 283
+Train Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+Val Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+(None, 256, 256, 64)
+(None, 128, 128, 50)
+ASPP (None, 128, 128, 256)
+(None, 128, 128, 128)
+Model: "DeepLabV3-Plus"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ InputLayer (InputLayer)        [(None, 256, 256, 3  0           []                               
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:2', device_type='GPU')]
+PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')
+PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU')
+PhysicalDevice(name='/physical_device:GPU:2', device_type='GPU')
+total len: 2670
+rank: 2  len train: 890  len valid 284
+Train Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+Val Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+(None, 256, 256, 64)
+(None, 128, 128, 50)
+ASPP (None, 128, 128, 256)
+(None, 128, 128, 128)
+Model: "DeepLabV3-Plus"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+                                )]                                                                
+                                                                                                  
+ InputLayer (InputLayer)        [(None, 256, 256, 3  0           []                               
+ patches (Patches)              (None, 256, 256, 3)  0           ['InputLayer[0][0]']             
+                                                                                                  
+                                )]                                                                
+                                                                                                  
+ patch_embedding (PatchEmbeddin  (None, 256, 256, 64  16640      ['patches[0][0]']                
+ g)                             )                                                                 
+                                                                                                  
+ patches (Patches)              (None, 256, 256, 3)  0           ['InputLayer[0][0]']             
+                                                                                                  
+ swin_transformer (SwinTransfor  (None, 256, 256, 64  50072      ['patch_embedding[0][0]']        
+ mer)                           )                                                                 
+                                                                                                  
+ patch_embedding (PatchEmbeddin  (None, 256, 256, 64  16640      ['patches[0][0]']                
+ g)                             )                                                                 
+                                                                                                  
+ swin_transformer_1 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer[0][0]']       
+ ormer)                         )                                                                 
+                                                                                                  
+ swin_transformer (SwinTransfor  (None, 256, 256, 64  50072      ['patch_embedding[0][0]']        
+ mer)                           )                                                                 
+                                                                                                  
+ swin_transformer_2 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer_1[0][0]']     
+ ormer)                         )                                                                 
+                                                                                                  
+ swin_transformer_1 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer[0][0]']       
+ ormer)                         )                                                                 
+                                                                                                  
+ patch_merging (PatchMerging)   (None, 256, 256, 64  0           ['swin_transformer_2[0][0]']     
+ swin_transformer_2 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer_1[0][0]']     
+ ormer)                         )                                                                 
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ patch_merging (PatchMerging)   (None, 256, 256, 64  0           ['swin_transformer_2[0][0]']     
+ conv2d (Conv2D)                (None, 256, 256, 50  28850       ['patch_merging[0][0]']          
+                                )                                                                 
+                                )                                                                 
+[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU'), PhysicalDevice(name='/physical_device:GPU:2', device_type='GPU')]
+PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')
+PhysicalDevice(name='/physical_device:GPU:1', device_type='GPU')
+PhysicalDevice(name='/physical_device:GPU:2', device_type='GPU')
+total len: 2670
+rank: 0  len train: 890  len valid 283
+Train Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+Val Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+(None, 256, 256, 64)
+(None, 128, 128, 50)
+ASPP (None, 128, 128, 256)
+(None, 128, 128, 128)
+Model: "DeepLabV3-Plus"
+__________________________________________________________________________________________________
+                                                                                                  
+                                                                                                  
+ conv2d (Conv2D)                (None, 256, 256, 50  28850       ['patch_merging[0][0]']          
+                                )                                                                 
+                                                                                                  
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ batch_normalization (BatchNorm  (None, 256, 256, 50  200        ['conv2d[0][0]']                 
+ batch_normalization (BatchNorm  (None, 256, 256, 50  200        ['conv2d[0][0]']                 
+ alization)                     )                                                                 
+ alization)                     )                                                                 
+                                                                                                  
+                                                                                                  
+ InputLayer (InputLayer)        [(None, 256, 256, 3  0           []                               
+ activation_3 (Activation)      (None, 256, 256, 50  0           ['batch_normalization[0][0]']    
+                                )]                                                                
+                                                                                                  
+                                )                                                                 
+ activation_3 (Activation)      (None, 256, 256, 50  0           ['batch_normalization[0][0]']    
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ max_pooling2d (MaxPooling2D)   (None, 128, 128, 50  0           ['activation_3[0][0]']           
+ patches (Patches)              (None, 256, 256, 3)  0           ['InputLayer[0][0]']             
+                                                                                                  
+                                )                                                                 
+ max_pooling2d (MaxPooling2D)   (None, 128, 128, 50  0           ['activation_3[0][0]']           
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ ASPP-AvgPool (AveragePooling2D  (None, 1, 1, 50)    0           ['max_pooling2d[0][0]']          
+ ASPP-AvgPool (AveragePooling2D  (None, 1, 1, 50)    0           ['max_pooling2d[0][0]']          
+ )                                                                                                
+                                                                                                  
+ )                                                                                                
+                                                                                                  
+ ASPP-ImagePool-CB (ConvBlock)  (None, 1, 1, 256)    13824       ['ASPP-AvgPool[0][0]']           
+                                                                                                  
+ patch_embedding (PatchEmbeddin  (None, 256, 256, 64  16640      ['patches[0][0]']                
+ block1_conv1 (Conv2D)          (None, 127, 127, 32  864         ['InputLayer[0][0]']             
+ g)                             )                                                                 
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ ASPP-ImagePool-CB (ConvBlock)  (None, 1, 1, 256)    13824       ['ASPP-AvgPool[0][0]']           
+ ASPP-ImagePool-UpSample (UpSam  (None, 128, 128, 25  0          ['ASPP-ImagePool-CB[0][0]']      
+                                                                                                  
+ pling2D)                       6)                                                                
+                                                                                                  
+ block1_conv1 (Conv2D)          (None, 127, 127, 32  864         ['InputLayer[0][0]']             
+ ASPP-CB-1 (ConvBlock)          (None, 128, 128, 25  13824       ['max_pooling2d[0][0]']          
+                                )                                                                 
+                                                                                                  
+                                6)                                                                
+ ASPP-ImagePool-UpSample (UpSam  (None, 128, 128, 25  0          ['ASPP-ImagePool-CB[0][0]']      
+                                                                                                  
+ pling2D)                       6)                                                                
+                                                                                                  
+ ASPP-CB-6 (ConvBlock)          (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+ swin_transformer (SwinTransfor  (None, 256, 256, 64  50072      ['patch_embedding[0][0]']        
+                                6)                                                                
+ mer)                           )                                                                 
+                                                                                                  
+                                                                                                  
+ ASPP-CB-1 (ConvBlock)          (None, 128, 128, 25  13824       ['max_pooling2d[0][0]']          
+ ASPP-CB-12 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ ASPP-CB-6 (ConvBlock)          (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+ ASPP-CB-18 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ swin_transformer_1 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer[0][0]']       
+ block1_conv1_bn (BatchNormaliz  (None, 127, 127, 32  128        ['block1_conv1[0][0]']           
+ ASPP-CB-12 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+ ation)                         )                                                                 
+                                                                                                  
+ ormer)                         )                                                                 
+                                                                                                  
+ ASPP-Combine (Concatenate)     (None, 128, 128, 12  0           ['ASPP-ImagePool-UpSample[0][0]',
+                                6)                                                                
+                                                                                                  
+                                80)                               'ASPP-CB-1[0][0]',              
+ ASPP-CB-18 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                                                  'ASPP-CB-6[0][0]',              
+                                6)                                                                
+                                                                                                  
+                                                                  'ASPP-CB-12[0][0]',             
+ block1_conv1_bn (BatchNormaliz  (None, 127, 127, 32  128        ['block1_conv1[0][0]']           
+                                                                  'ASPP-CB-18[0][0]']             
+                                                                                                  
+ ation)                         )                                                                 
+                                                                                                  
+ block1_conv1_act (Activation)  (None, 127, 127, 32  0           ['block1_conv1_bn[0][0]']        
+ swin_transformer_2 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer_1[0][0]']     
+                                )                                                                 
+                                                                                                  
+ ormer)                         )                                                                 
+                                                                                                  
+ ASPP-Net (ConvBlock)           (None, 128, 128, 25  328704      ['ASPP-Combine[0][0]']           
+ ASPP-Combine (Concatenate)     (None, 128, 128, 12  0           ['ASPP-ImagePool-UpSample[0][0]',
+                                6)                                                                
+                                80)                               'ASPP-CB-1[0][0]',              
+                                                                                                  
+                                                                  'ASPP-CB-6[0][0]',              
+ zero_padding2d (ZeroPadding2D)  (None, 128, 128, 32  0          ['block1_conv1_act[0][0]']       
+                                                                  'ASPP-CB-12[0][0]',             
+                                )                                                                 
+                                                                                                  
+                                                                  'ASPP-CB-18[0][0]']             
+                                                                                                  
+ AtrousSpatial (UpSampling2D)   (None, 128, 128, 25  0           ['ASPP-Net[0][0]']               
+ patch_merging (PatchMerging)   (None, 256, 256, 64  0           ['swin_transformer_2[0][0]']     
+                                6)                                                                
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ LLF-ConvBlock (ConvBlock)      (None, 128, 128, 12  4608        ['zero_padding2d[0][0]']         
+ block1_conv1_act (Activation)  (None, 127, 127, 32  0           ['block1_conv1_bn[0][0]']        
+                                8)                                                                
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ Combine-LLF-ASPP (Concatenate)  (None, 128, 128, 38  0          ['AtrousSpatial[0][0]',          
+ conv2d (Conv2D)                (None, 256, 256, 50  28850       ['patch_merging[0][0]']          
+                                4)                                'LLF-ConvBlock[0][0]']          
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ Top-ConvBlock-1 (ConvBlock)    (None, 128, 128, 25  885760      ['Combine-LLF-ASPP[0][0]']       
+ ASPP-Net (ConvBlock)           (None, 128, 128, 25  328704      ['ASPP-Combine[0][0]']           
+                                6)                                                                
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ Top-ConvBlock-2 (ConvBlock)    (None, 128, 128, 25  590848      ['Top-ConvBlock-1[0][0]']        
+ batch_normalization (BatchNorm  (None, 256, 256, 50  200        ['conv2d[0][0]']                 
+                                6)                                                                
+                                                                                                  
+ alization)                     )                                                                 
+                                                                                                  
+ Top-UpSample (UpSampling2D)    (None, 256, 256, 25  0           ['Top-ConvBlock-2[0][0]']        
+ zero_padding2d (ZeroPadding2D)  (None, 128, 128, 32  0          ['block1_conv1_act[0][0]']       
+                                6)                                                                
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ OutputMask (Conv2D)            (None, 256, 256, 1)  2304        ['Top-UpSample[0][0]']           
+                                                                                                  
+ activation_3 (Activation)      (None, 256, 256, 50  0           ['batch_normalization[0][0]']    
+==================================================================================================
+                                )                                                                 
+                                                                                                  
+Total params: 2,387,490
+Trainable params: 2,380,878
+Non-trainable params: 6,612
+__________________________________________________________________________________________________
+ AtrousSpatial (UpSampling2D)   (None, 128, 128, 25  0           ['ASPP-Net[0][0]']               
+Model: "DeepLabV3-Plus"
+__________________________________________________________________________________________________
+                                6)                                                                
+                                                                                                  
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ max_pooling2d (MaxPooling2D)   (None, 128, 128, 50  0           ['activation_3[0][0]']           
+ InputLayer (InputLayer)        [(None, 256, 256, 3  0           []                               
+                                )                                                                 
+                                                                                                  
+                                )]                                                                
+                                                                                                  
+ ASPP-AvgPool (AveragePooling2D  (None, 1, 1, 50)    0           ['max_pooling2d[0][0]']          
+ patches (Patches)              (None, 256, 256, 3)  0           ['InputLayer[0][0]']             
+                                                                                                  
+ )                                                                                                
+                                                                                                  
+ patch_embedding (PatchEmbeddin  (None, 256, 256, 64  16640      ['patches[0][0]']                
+ LLF-ConvBlock (ConvBlock)      (None, 128, 128, 12  4608        ['zero_padding2d[0][0]']         
+ g)                             )                                                                 
+                                                                                                  
+                                8)                                                                
+                                                                                                  
+ swin_transformer (SwinTransfor  (None, 256, 256, 64  50072      ['patch_embedding[0][0]']        
+ Combine-LLF-ASPP (Concatenate)  (None, 128, 128, 38  0          ['AtrousSpatial[0][0]',          
+ mer)                           )                                                                 
+                                                                                                  
+                                4)                                'LLF-ConvBlock[0][0]']          
+                                                                                                  
+ swin_transformer_1 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer[0][0]']       
+ ASPP-ImagePool-CB (ConvBlock)  (None, 1, 1, 256)    13824       ['ASPP-AvgPool[0][0]']           
+                                                                                                  
+ ormer)                         )                                                                 
+ block1_conv1 (Conv2D)          (None, 127, 127, 32  864         ['InputLayer[0][0]']             
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ swin_transformer_2 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer_1[0][0]']     
+ Top-ConvBlock-1 (ConvBlock)    (None, 128, 128, 25  885760      ['Combine-LLF-ASPP[0][0]']       
+ ormer)                         )                                                                 
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ patch_merging (PatchMerging)   (None, 256, 256, 64  0           ['swin_transformer_2[0][0]']     
+ ASPP-ImagePool-UpSample (UpSam  (None, 128, 128, 25  0          ['ASPP-ImagePool-CB[0][0]']      
+                                )                                                                 
+                                                                                                  
+ pling2D)                       6)                                                                
+                                                                                                  
+ conv2d (Conv2D)                (None, 256, 256, 50  28850       ['patch_merging[0][0]']          
+ Top-ConvBlock-2 (ConvBlock)    (None, 128, 128, 25  590848      ['Top-ConvBlock-1[0][0]']        
+                                )                                                                 
+                                6)                                                                
+                                                                                                  
+                                                                                                  
+ ASPP-CB-1 (ConvBlock)          (None, 128, 128, 25  13824       ['max_pooling2d[0][0]']          
+ batch_normalization (BatchNorm  (None, 256, 256, 50  200        ['conv2d[0][0]']                 
+ Top-UpSample (UpSampling2D)    (None, 256, 256, 25  0           ['Top-ConvBlock-2[0][0]']        
+ alization)                     )                                                                 
+                                6)                                                                
+                                                                                                  
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ activation_3 (Activation)      (None, 256, 256, 50  0           ['batch_normalization[0][0]']    
+ OutputMask (Conv2D)            (None, 256, 256, 1)  2304        ['Top-UpSample[0][0]']           
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+==================================================================================================
+ max_pooling2d (MaxPooling2D)   (None, 128, 128, 50  0           ['activation_3[0][0]']           
+ ASPP-CB-6 (ConvBlock)          (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                )                                                                 
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ ASPP-AvgPool (AveragePooling2D  (None, 1, 1, 50)    0           ['max_pooling2d[0][0]']          
+ ASPP-CB-12 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+ )                                                                                                
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ ASPP-ImagePool-CB (ConvBlock)  (None, 1, 1, 256)    13824       ['ASPP-AvgPool[0][0]']           
+                                                                                                  
+ ASPP-CB-18 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+ block1_conv1 (Conv2D)          (None, 127, 127, 32  864         ['InputLayer[0][0]']             
+                                6)                                                                
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ block1_conv1_bn (BatchNormaliz  (None, 127, 127, 32  128        ['block1_conv1[0][0]']           
+ ASPP-ImagePool-UpSample (UpSam  (None, 128, 128, 25  0          ['ASPP-ImagePool-CB[0][0]']      
+ ation)                         )                                                                 
+                                                                                                  
+ pling2D)                       6)                                                                
+                                                                                                  
+ ASPP-Combine (Concatenate)     (None, 128, 128, 12  0           ['ASPP-ImagePool-UpSample[0][0]',
+ ASPP-CB-1 (ConvBlock)          (None, 128, 128, 25  13824       ['max_pooling2d[0][0]']          
+                                80)                               'ASPP-CB-1[0][0]',              
+                                6)                                                                
+                                                                                                  
+                                                                  'ASPP-CB-6[0][0]',              
+ ASPP-CB-6 (ConvBlock)          (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                                                  'ASPP-CB-12[0][0]',             
+                                6)                                                                
+                                                                  'ASPP-CB-18[0][0]']             
+                                                                                                  
+                                                                                                  
+ block1_conv1_act (Activation)  (None, 127, 127, 32  0           ['block1_conv1_bn[0][0]']        
+ ASPP-CB-12 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                )                                                                 
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ ASPP-Net (ConvBlock)           (None, 128, 128, 25  328704      ['ASPP-Combine[0][0]']           
+ ASPP-CB-18 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ zero_padding2d (ZeroPadding2D)  (None, 128, 128, 32  0          ['block1_conv1_act[0][0]']       
+ block1_conv1_bn (BatchNormaliz  (None, 127, 127, 32  128        ['block1_conv1[0][0]']           
+                                )                                                                 
+                                                                                                  
+ ation)                         )                                                                 
+                                                                                                  
+ AtrousSpatial (UpSampling2D)   (None, 128, 128, 25  0           ['ASPP-Net[0][0]']               
+ ASPP-Combine (Concatenate)     (None, 128, 128, 12  0           ['ASPP-ImagePool-UpSample[0][0]',
+                                6)                                                                
+                                80)                               'ASPP-CB-1[0][0]',              
+                                                                                                  
+                                                                  'ASPP-CB-6[0][0]',              
+ LLF-ConvBlock (ConvBlock)      (None, 128, 128, 12  4608        ['zero_padding2d[0][0]']         
+                                                                  'ASPP-CB-12[0][0]',             
+                                8)                                                                
+                                                                                                  
+                                                                  'ASPP-CB-18[0][0]']             
+                                                                                                  
+ Combine-LLF-ASPP (Concatenate)  (None, 128, 128, 38  0          ['AtrousSpatial[0][0]',          
+ block1_conv1_act (Activation)  (None, 127, 127, 32  0           ['block1_conv1_bn[0][0]']        
+                                4)                                'LLF-ConvBlock[0][0]']          
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ Top-ConvBlock-1 (ConvBlock)    (None, 128, 128, 25  885760      ['Combine-LLF-ASPP[0][0]']       
+ ASPP-Net (ConvBlock)           (None, 128, 128, 25  328704      ['ASPP-Combine[0][0]']           
+                                6)                                                                
+                                6)                                                                
+                                                                                                  
+                                                                                                  
+ zero_padding2d (ZeroPadding2D)  (None, 128, 128, 32  0          ['block1_conv1_act[0][0]']       
+ Top-ConvBlock-2 (ConvBlock)    (None, 128, 128, 25  590848      ['Top-ConvBlock-1[0][0]']        
+                                )                                                                 
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ AtrousSpatial (UpSampling2D)   (None, 128, 128, 25  0           ['ASPP-Net[0][0]']               
+Total params: 2,387,490
+Trainable params: 2,380,878
+Non-trainable params: 6,612
+                                6)                                                                
+                                                                                                  
+__________________________________________________________________________________________________
+ LLF-ConvBlock (ConvBlock)      (None, 128, 128, 12  4608        ['zero_padding2d[0][0]']         
+ Top-UpSample (UpSampling2D)    (None, 256, 256, 25  0           ['Top-ConvBlock-2[0][0]']        
+                                8)                                                                
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ Combine-LLF-ASPP (Concatenate)  (None, 128, 128, 38  0          ['AtrousSpatial[0][0]',          
+ OutputMask (Conv2D)            (None, 256, 256, 1)  2304        ['Top-UpSample[0][0]']           
+                                                                                                  
+                                4)                                'LLF-ConvBlock[0][0]']          
+                                                                                                  
+==================================================================================================
+ Top-ConvBlock-1 (ConvBlock)    (None, 128, 128, 25  885760      ['Combine-LLF-ASPP[0][0]']       
+Model: "DeepLabV3-Plus"
+__________________________________________________________________________________________________
+                                6)                                                                
+                                                                                                  
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ Top-ConvBlock-2 (ConvBlock)    (None, 128, 128, 25  590848      ['Top-ConvBlock-1[0][0]']        
+ InputLayer (InputLayer)        [(None, 256, 256, 3  0           []                               
+                                6)                                                                
+                                                                                                  
+                                )]                                                                
+                                                                                                  
+ Top-UpSample (UpSampling2D)    (None, 256, 256, 25  0           ['Top-ConvBlock-2[0][0]']        
+ patches (Patches)              (None, 256, 256, 3)  0           ['InputLayer[0][0]']             
+                                                                                                  
+                                6)                                                                
+                                                                                                  
+ patch_embedding (PatchEmbeddin  (None, 256, 256, 64  16640      ['patches[0][0]']                
+ OutputMask (Conv2D)            (None, 256, 256, 1)  2304        ['Top-UpSample[0][0]']           
+                                                                                                  
+==================================================================================================
+ g)                             )                                                                 
+                                                                                                  
+Total params: 2,387,490
+Trainable params: 2,380,878
+Non-trainable params: 6,612
+__________________________________________________________________________________________________
+ swin_transformer (SwinTransfor  (None, 256, 256, 64  50072      ['patch_embedding[0][0]']        
+ mer)                           )                                                                 
+                                                                                                  
+ swin_transformer_1 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer[0][0]']       
+ ormer)                         )                                                                 
+                                                                                                  
+ swin_transformer_2 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer_1[0][0]']     
+ ormer)                         )                                                                 
+                                                                                                  
+ patch_merging (PatchMerging)   (None, 256, 256, 64  0           ['swin_transformer_2[0][0]']     
+                                )                                                                 
+                                                                                                  
+Total params: 2,387,490
+Trainable params: 2,380,878
+Non-trainable params: 6,612
+__________________________________________________________________________________________________
+ conv2d (Conv2D)                (None, 256, 256, 50  28850       ['patch_merging[0][0]']          
+                                )                                                                 
+                                                                                                  
+ batch_normalization (BatchNorm  (None, 256, 256, 50  200        ['conv2d[0][0]']                 
+ alization)                     )                                                                 
+                                                                                                  
+ activation_3 (Activation)      (None, 256, 256, 50  0           ['batch_normalization[0][0]']    
+                                )                                                                 
+                                                                                                  
+ max_pooling2d (MaxPooling2D)   (None, 128, 128, 50  0           ['activation_3[0][0]']           
+                                )                                                                 
+                                                                                                  
+Model: "DeepLabV3-Plus"
+__________________________________________________________________________________________________
+ ASPP-AvgPool (AveragePooling2D  (None, 1, 1, 50)    0           ['max_pooling2d[0][0]']          
+ )                                                                                                
+                                                                                                  
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ InputLayer (InputLayer)        [(None, 256, 256, 3  0           []                               
+ ASPP-ImagePool-CB (ConvBlock)  (None, 1, 1, 256)    13824       ['ASPP-AvgPool[0][0]']           
+                                                                                                  
+                                )]                                                                
+                                                                                                  
+ patches (Patches)              (None, 256, 256, 3)  0           ['InputLayer[0][0]']             
+                                                                                                  
+ block1_conv1 (Conv2D)          (None, 127, 127, 32  864         ['InputLayer[0][0]']             
+                                )                                                                 
+                                                                                                  
+ ASPP-ImagePool-UpSample (UpSam  (None, 128, 128, 25  0          ['ASPP-ImagePool-CB[0][0]']      
+ pling2D)                       6)                                                                
+                                                                                                  
+ patch_embedding (PatchEmbeddin  (None, 256, 256, 64  16640      ['patches[0][0]']                
+ g)                             )                                                                 
+                                                                                                  
+ ASPP-CB-1 (ConvBlock)          (None, 128, 128, 25  13824       ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+ ASPP-CB-6 (ConvBlock)          (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+ swin_transformer (SwinTransfor  (None, 256, 256, 64  50072      ['patch_embedding[0][0]']        
+ mer)                           )                                                                 
+                                                                                                  
+ ASPP-CB-12 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+ ASPP-CB-18 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+ swin_transformer_1 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer[0][0]']       
+ ormer)                         )                                                                 
+                                                                                                  
+ block1_conv1_bn (BatchNormaliz  (None, 127, 127, 32  128        ['block1_conv1[0][0]']           
+ ation)                         )                                                                 
+                                                                                                  
+ ASPP-Combine (Concatenate)     (None, 128, 128, 12  0           ['ASPP-ImagePool-UpSample[0][0]',
+                                80)                               'ASPP-CB-1[0][0]',              
+                                                                  'ASPP-CB-6[0][0]',              
+                                                                  'ASPP-CB-12[0][0]',             
+                                                                  'ASPP-CB-18[0][0]']             
+                                                                                                  
+ block1_conv1_act (Activation)  (None, 127, 127, 32  0           ['block1_conv1_bn[0][0]']        
+                                )                                                                 
+                                                                                                  
+ swin_transformer_2 (SwinTransf  (None, 256, 256, 64  51096      ['swin_transformer_1[0][0]']     
+ ormer)                         )                                                                 
+                                                                                                  
+ patch_merging (PatchMerging)   (None, 256, 256, 64  0           ['swin_transformer_2[0][0]']     
+                                )                                                                 
+                                                                                                  
+ ASPP-Net (ConvBlock)           (None, 128, 128, 25  328704      ['ASPP-Combine[0][0]']           
+                                6)                                                                
+                                                                                                  
+ zero_padding2d (ZeroPadding2D)  (None, 128, 128, 32  0          ['block1_conv1_act[0][0]']       
+ conv2d (Conv2D)                (None, 256, 256, 50  28850       ['patch_merging[0][0]']          
+                                )                                                                 
+                                                                                                  
+                                )                                                                 
+                                                                                                  
+ AtrousSpatial (UpSampling2D)   (None, 128, 128, 25  0           ['ASPP-Net[0][0]']               
+                                6)                                                                
+                                                                                                  
+ batch_normalization (BatchNorm  (None, 256, 256, 50  200        ['conv2d[0][0]']                 
+ alization)                     )                                                                 
+                                                                                                  
+ activation_3 (Activation)      (None, 256, 256, 50  0           ['batch_normalization[0][0]']    
+                                )                                                                 
+                                                                                                  
+ LLF-ConvBlock (ConvBlock)      (None, 128, 128, 12  4608        ['zero_padding2d[0][0]']         
+                                8)                                                                
+                                                                                                  
+ max_pooling2d (MaxPooling2D)   (None, 128, 128, 50  0           ['activation_3[0][0]']           
+                                )                                                                 
+                                                                                                  
+ Combine-LLF-ASPP (Concatenate)  (None, 128, 128, 38  0          ['AtrousSpatial[0][0]',          
+                                4)                                'LLF-ConvBlock[0][0]']          
+                                                                                                  
+ ASPP-AvgPool (AveragePooling2D  (None, 1, 1, 50)    0           ['max_pooling2d[0][0]']          
+ )                                                                                                
+                                                                                                  
+ Top-ConvBlock-1 (ConvBlock)    (None, 128, 128, 25  885760      ['Combine-LLF-ASPP[0][0]']       
+                                6)                                                                
+                                                                                                  
+ ASPP-ImagePool-CB (ConvBlock)  (None, 1, 1, 256)    13824       ['ASPP-AvgPool[0][0]']           
+                                                                                                  
+ block1_conv1 (Conv2D)          (None, 127, 127, 32  864         ['InputLayer[0][0]']             
+                                )                                                                 
+                                                                                                  
+ Top-ConvBlock-2 (ConvBlock)    (None, 128, 128, 25  590848      ['Top-ConvBlock-1[0][0]']        
+                                6)                                                                
+                                                                                                  
+ ASPP-ImagePool-UpSample (UpSam  (None, 128, 128, 25  0          ['ASPP-ImagePool-CB[0][0]']      
+ pling2D)                       6)                                                                
+                                                                                                  
+ Top-UpSample (UpSampling2D)    (None, 256, 256, 25  0           ['Top-ConvBlock-2[0][0]']        
+                                6)                                                                
+                                                                                                  
+ OutputMask (Conv2D)            (None, 256, 256, 1)  2304        ['Top-UpSample[0][0]']           
+                                                                                                  
+==================================================================================================
+ ASPP-CB-1 (ConvBlock)          (None, 128, 128, 25  13824       ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+ ASPP-CB-6 (ConvBlock)          (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+ ASPP-CB-12 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+ ASPP-CB-18 (ConvBlock)         (None, 128, 128, 25  116224      ['max_pooling2d[0][0]']          
+                                6)                                                                
+                                                                                                  
+ block1_conv1_bn (BatchNormaliz  (None, 127, 127, 32  128        ['block1_conv1[0][0]']           
+ ation)                         )                                                                 
+                                                                                                  
+ ASPP-Combine (Concatenate)     (None, 128, 128, 12  0           ['ASPP-ImagePool-UpSample[0][0]',
+                                80)                               'ASPP-CB-1[0][0]',              
+                                                                  'ASPP-CB-6[0][0]',              
+                                                                  'ASPP-CB-12[0][0]',             
+                                                                  'ASPP-CB-18[0][0]']             
+                                                                                                  
+ block1_conv1_act (Activation)  (None, 127, 127, 32  0           ['block1_conv1_bn[0][0]']        
+                                )                                                                 
+                                                                                                  
+ ASPP-Net (ConvBlock)           (None, 128, 128, 25  328704      ['ASPP-Combine[0][0]']           
+                                6)                                                                
+                                                                                                  
+ zero_padding2d (ZeroPadding2D)  (None, 128, 128, 32  0          ['block1_conv1_act[0][0]']       
+                                )                                                                 
+                                                                                                  
+ AtrousSpatial (UpSampling2D)   (None, 128, 128, 25  0           ['ASPP-Net[0][0]']               
+                                6)                                                                
+                                                                                                  
+ LLF-ConvBlock (ConvBlock)      (None, 128, 128, 12  4608        ['zero_padding2d[0][0]']         
+                                8)                                                                
+                                                                                                  
+ Combine-LLF-ASPP (Concatenate)  (None, 128, 128, 38  0          ['AtrousSpatial[0][0]',          
+                                4)                                'LLF-ConvBlock[0][0]']          
+                                                                                                  
+ Top-ConvBlock-1 (ConvBlock)    (None, 128, 128, 25  885760      ['Combine-LLF-ASPP[0][0]']       
+                                6)                                                                
+                                                                                                  
+Total params: 2,387,490
+Trainable params: 2,380,878
+Non-trainable params: 6,612
+__________________________________________________________________________________________________
+ Top-ConvBlock-2 (ConvBlock)    (None, 128, 128, 25  590848      ['Top-ConvBlock-1[0][0]']        
+                                6)                                                                
+                                                                                                  
+ Top-UpSample (UpSampling2D)    (None, 256, 256, 25  0           ['Top-ConvBlock-2[0][0]']        
+                                6)                                                                
+                                                                                                  
+ OutputMask (Conv2D)            (None, 256, 256, 1)  2304        ['Top-UpSample[0][0]']           
+                                                                                                  
+==================================================================================================
+Total params: 2,387,490
+Trainable params: 2,380,878
+Non-trainable params: 6,612
+__________________________________________________________________________________________________
+Total training time: 5369.11 seconds
+Total training time: 5369.11 seconds
+/scratch/09819/xeh13/python-envs/test/lib/python3.9/site-packages/sklearn/metrics/_classification.py:386: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+
+Epoch 3: finished gradual learning rate warmup to 0.003.
+Total training time: 5369.11 seconds
+Test Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+Test Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+Mean Dice coefficient: 0.8237675364156228
+Mean IoU (Jaccard) score: 0.7005222814177205
+Mean Matthews Correlation Coefficient: 0.8110505248723253
+Mean Accuracy: 0.975147565205892
+Mean Precision: 0.8037003440013667
+Mean Recall (Sensitivity): 0.8461108264439056
+Mean F1 score: 0.8237675364155007
+Mean Dice coefficient: 0.6609888023178208
+Mean IoU (Jaccard) score: 0.5687287670853658
+Mean Matthews Correlation Coefficient: 0.647720762232694
+Mean Accuracy: 0.9985655466715495
+Mean Precision: 0.7151541027907833
+Mean Recall (Sensitivity): 0.7591537252813995
+Mean F1 score: 0.6609888018262666
+c301-[002,004]
+c301-002

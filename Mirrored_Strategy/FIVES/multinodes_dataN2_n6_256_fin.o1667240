@@ -1,0 +1,35 @@
+
+The following have been reloaded with a version change:
+  1) python3/3.9.7 => python3/3.7.13
+
+2024-04-29 14:03:52.796494: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-04-29 14:03:58.423997: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 38221 MB memory:  -> device: 0, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:21:00.0, compute capability: 8.0
+2024-04-29 14:03:58.463980: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 38221 MB memory:  -> device: 1, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:81:00.0, compute capability: 8.0
+2024-04-29 14:03:58.467081: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 38221 MB memory:  -> device: 2, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:e2:00.0, compute capability: 8.0
+2024-04-29 14:03:58.501658: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:0 with 38221 MB memory:  -> device: 0, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:21:00.0, compute capability: 8.0
+2024-04-29 14:03:58.504173: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:1 with 38221 MB memory:  -> device: 1, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:81:00.0, compute capability: 8.0
+2024-04-29 14:03:58.506774: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:worker/replica:0/task:0/device:GPU:2 with 38221 MB memory:  -> device: 2, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:e2:00.0, compute capability: 8.0
+E0429 14:03:58.517429465  563199 server_chttp2.cc:40]        {"created":"@1714417438.517389188","description":"No address added out of total 1 resolved","file":"external/com_github_grpc_grpc/src/core/ext/transport/chttp2/server/chttp2_server.cc","file_line":395,"referenced_errors":[{"created":"@1714417438.517386754","description":"Failed to add any wildcard listeners","file":"external/com_github_grpc_grpc/src/core/lib/iomgr/tcp_server_posix.cc","file_line":342,"referenced_errors":[{"created":"@1714417438.517378989","description":"Unable to configure socket","fd":74,"file":"external/com_github_grpc_grpc/src/core/lib/iomgr/tcp_server_utils_posix_common.cc","file_line":216,"referenced_errors":[{"created":"@1714417438.517377256","description":"Permission denied","errno":13,"file":"external/com_github_grpc_grpc/src/core/lib/iomgr/tcp_server_utils_posix_common.cc","file_line":189,"os_error":"Permission denied","syscall":"bind"}]},{"created":"@1714417438.517386483","description":"Unable to configure socket","fd":74,"file":"external/com_github_grpc_grpc/src/core/lib/iomgr/tcp_server_utils_posix_common.cc","file_line":216,"referenced_errors":[{"created":"@1714417438.517385231","description":"Permission denied","errno":13,"file":"external/com_github_grpc_grpc/src/core/lib/iomgr/tcp_server_utils_posix_common.cc","file_line":189,"os_error":"Permission denied","syscall":"bind"}]}]}]}
+2024-04-29 14:03:58.517852: E tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:566] UNKNOWN: Could not start gRPC server
+2024-04-29 14:03:58.518430: E tensorflow/core/common_runtime/eager/context_distributed_manager.cc:689] Could not start gRPC server
+Running on multiple nodes.
+Node names and GPU devices:
+c315-001:GPU:0,GPU:1,GPU:2
+c315-003:GPU:0,GPU:1,GPU:2
+Traceback (most recent call last):
+  File "/scratch/09825/dtu14/Final_project/cs7389D_HPScaleProject/tani/transformer/result/mirror_compile_five.py", line 69, in <module>
+    strategy = tf.distribute.MultiWorkerMirroredStrategy()
+  File "/scratch/09825/dtu14/new_env/lib/python3.7/site-packages/tensorflow/python/distribute/collective_all_reduce_strategy.py", line 189, in __init__
+    communication_options=communication_options))
+  File "/scratch/09825/dtu14/new_env/lib/python3.7/site-packages/tensorflow/python/distribute/collective_all_reduce_strategy.py", line 330, in __init__
+    self._initialize_strategy(self._cluster_resolver)
+  File "/scratch/09825/dtu14/new_env/lib/python3.7/site-packages/tensorflow/python/distribute/collective_all_reduce_strategy.py", line 342, in _initialize_strategy
+    self._initialize_multi_worker(cluster_resolver)
+  File "/scratch/09825/dtu14/new_env/lib/python3.7/site-packages/tensorflow/python/distribute/collective_all_reduce_strategy.py", line 511, in _initialize_multi_worker
+    context.context().ensure_initialized()
+  File "/scratch/09825/dtu14/new_env/lib/python3.7/site-packages/tensorflow/python/eager/context.py", line 587, in ensure_initialized
+    pywrap_tfe.TFE_EnableCollectiveOps(context_handle, server_def_str)
+tensorflow.python.framework.errors_impl.UnknownError: Could not start gRPC server
+c315-[001,003]
+c315-001
